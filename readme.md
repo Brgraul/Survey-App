@@ -1,6 +1,6 @@
-# Quiz Game
+# Survey App
 
-A demo application for [Living Lab Bus Platform](https://llb.sis.uta.fi) which uses Angulat Material for creating a small quiz game.
+A demo application for [Living Lab Bus Platform](https://llb.sis.uta.fi) which uses Angular Material for loading Google Forms.
 
 ## To Run 
 
