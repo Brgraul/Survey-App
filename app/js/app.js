@@ -13,8 +13,6 @@ quiz.config(function($sceDelegateProvider) {
    'self',
    // Allow loading from our assets do.  Notice the difference between * and **.
    'http://srv*.assets.example.com/**',
-	 "https://docs.google.com/forms/d/e/1FAIpQLSfI_c_RYCbjVIqC-w5mOLA_kk6mk_4JlKSokEfEqvoVjRsFlQ/viewform",
-	 "https://docs.google.com/forms/d/e/1FAIpQLSdJkuukFnzPTiFkObnawv_ZKmfj_U09AZkU7dnkSQVc9DwIfg/viewform"
  ]);
  })
 
@@ -57,17 +55,20 @@ quiz.controller('MainController', ['$rootScope', function($rootScope){
 	var vm = this;
 	vm.screen = 'start';
 	$rootScope.myCard = 0;
+  vm.location = '';
+
+  llb_app.addListener('location', function(result){
+  if(result.status == 'success'){
+  }
+  })
+
 	$rootScope.$on('changed_window_state', function(){
 		vm.screen = 'start';
 	})
+
 	$rootScope.toggler1 = function (){
 		$rootScope.myCard = $rootScope.myCard + 1;
-		$rootScope.myUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfI_c_RYCbjVIqC-w5mOLA_kk6mk_4JlKSokEfEqvoVjRsFlQ/viewform";
-		console.log($rootScope.myUrl)
-	};
-	$rootScope.toggler2 = function (){
-		$rootScope.myCard = $rootScope.myCard + 1;
-		$rootScope.myUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdJkuukFnzPTiFkObnawv_ZKmfj_U09AZkU7dnkSQVc9DwIfg/viewform";
-		console.log($rootScope.myUrl)
+    llb_app.request('location');
+    console.log(vm.location);
 	};
 }])

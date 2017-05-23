@@ -16,20 +16,32 @@
 </head>
 <body ng-if='$root.initialized' ng-style='{ "backgroundColor" : $root.fullscreen ? "#ffee58" : "#4cae50" }' layout='column'>
 	<div ng-if="!$root.fullscreen" ng-controller='MainController as vm' layout='row' layout-align='center center' flex class='tile'>
-		<span class='title md-display-1'> LLB Survey <span>
+		<span class='title md-display-1'> Tapplaner <span>
 	</div>
 	<div ng-if="$root.fullscreen" class='fullscreen' flex layout='column' layout-align="center center">
-		<md-card ng-hide="myCard">
-			 <md-card-title layout="column" layout-align="center center">
-				 <h1>Valise kieli</h1>
-				 <h2>Choose your language</h2>
-			 </md-card-title>
-			 <md-card-actions layout="row" layout-align="center">
-				 <md-button ng-click='toggler1()' class="btn md-raised md-primary">Suomi</md-button>
-				 <md-button ng-click='toggler2()' class="md-raised md-primary">English</md-button>
-			 </md-card-actions>
-		 </md-card>
-		 <iframe ng-show='myCard' class="main-frame" ng-src="{{myUrl}}"></iframe>
+		<div class="initial" ng-hide="myCard" flex layout='column' layout-align="center center">
+			<h1>Touch!</h1>
+			<img ng-click='toggler1()' class="dice-button" src="img/dice.png"/>
+			<h2>Best events in your area, <br />  at a tap.</h2>
+		</div>
+		<div class="final" ng-show="myCard" flex layout='column' layout-align="center center">
+			<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+				<div class="upbanner" flex layout="row" layout-align="center center">
+					<img class="event-pic" src="img/dice.png"/>
+					<div flex="50" layout="column" layout-align="start center">
+						<md-button class="btn md-raised md-primary">Details</md-button>
+						<md-button class="btn md-raised md-primary">Navigate</md-button>
+					</div>
+				</div>
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Name of the event</span>
+		            <span class="md-subhead">Location and date</span>
+		          </md-card-title-text>
+		        </md-card-title>
+		      </md-card>
+					<md-button class="btn md-raised md-primary">Try again!</md-button>
+		</div>
 	</div>
 </body>
 </html>

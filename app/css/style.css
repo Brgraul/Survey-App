@@ -55,23 +55,42 @@ md-dialog.fullscreen
     min-width: 95%;
 }
 
-md-dialog .progress
-{
-	top: 50%;
-    bottom: auto;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    font-size: 14px;
-    position: absolute;
-    color: #fff;
-    font-weight: 100;
-    line-height: 1;
-    margin-top: -2px;
+.fullscreen .dice-button{
+	width: 80%;
 }
 
-md-dialog button.animate
-{
-	animation: pulse 0.8s linear infinite !important;
+.fullscreen h1{
+	margin-top: 0;
+	margin-bottom: 9%;
+	font-size: 15.5vh;
+}
+
+.fullscreen h2{
+	margin-top: 10%;
+	margin-bottom: 0;
+	font-size: 4.5vh;
+	text-align: center;
+}
+
+.fullscreen .initial {
+	width: 100%;
+}
+
+.fullscreen .final {
+	width: 100%;
+}
+
+.upbanner div{
+	padding-right: 5%;
+}
+
+.upbanner .btn{
+	min-width: 100%;
+}
+
+.event-pic {
+	margin: 5%;
+	max-width: 42% !important;
 }
 
 @keyframes pulse {
